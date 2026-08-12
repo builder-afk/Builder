@@ -407,7 +407,7 @@ export default function BillingPage() {
             <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <span className="text-[#F26522] font-bold">UPI AutoPay</span>
-                <span>kunal@okhdfcbank</span>
+                <span className="font-mono text-white">kv853772@okhdfcbank</span>
               </div>
               <span className="text-slate-400 text-[11px]">Active</span>
             </div>

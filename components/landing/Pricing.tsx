@@ -218,58 +218,88 @@ const specialPlans = [
    ────────────────────────────────────────── */
 const addOnServices = [
   {
+    id: "addon_3d_showcase",
     name: "Premium 3D Property Showcase",
-    price: "₹10,000-₹15,000/ Property",
     icon: Box,
     color: "#F26522",
     details: [
-      "Interactive 3D Walkthrough",
-      "Web Viewer",
-      "Mobile Compatible",
-      "Hosting Included",
+      "Interactive 3D Walkthrough & Dollhouse View",
+      "Web Viewer with Embed Code & QR Code",
+      "Mobile, Tablet & Desktop Compatible",
+      "High-speed CDN Hosting Included for 1 Year",
     ],
   },
   {
+    id: "addon_virtual_tour_360",
     name: "360° Virtual Tour",
-    price: "₹8,000–₹15,000",
     icon: Globe,
     color: "#06b6d4",
-    details: null,
+    details: [
+      "Up to 15 Ultra-HDR 360° Panoramas",
+      "Interactive Info Hotspots & Radar Maps",
+      "Audio Narration & Ambient Soundtracks",
+      "Immersive VR Headset Compatible",
+    ],
   },
   {
+    id: "addon_interactive_floorplan",
     name: "Interactive Floor Plan",
-    price: "₹5,000–₹10,000",
     icon: Ruler,
     color: "#10b981",
-    details: null,
+    details: [
+      "2D Schematic & 3D Isometric Views",
+      "Precision Dimension & Area Annotations",
+      "Interactive Click-to-View Room Photos",
+      "High-Res Vector SVG & Printable PDF",
+    ],
   },
   {
+    id: "addon_ai_staging_pack",
     name: "AI Virtual Staging",
-    price: "₹1,500–₹5,000 / Image",
     icon: Wand2,
     color: "#8b5cf6",
-    details: null,
+    details: [
+      "Photorealistic 4K Furnished Renders",
+      "8+ Designer Styles (Modern, Luxe, Japandi)",
+      "Clutter Removal & Room Filling",
+      "Fast 24-Hour Delivery with Revisions",
+    ],
   },
   {
+    id: "addon_property_microsite",
     name: "Property Microsite",
-    price: "₹10,000+",
     icon: Globe,
     color: "#ec4899",
-    details: null,
+    details: [
+      "Custom Branded Single-Property Domain",
+      "Instant Lead Capture & WhatsApp Integration",
+      "High-Speed Mobile Responsive Design",
+      "SEO & Social Share Preview Optimization",
+    ],
   },
   {
+    id: "addon_drone_shoot",
     name: "Drone Shoot",
-    price: "₹15,000–₹25,000",
     icon: Camera,
     color: "#0ea5e9",
-    details: null,
+    details: [
+      "Licensed DGCA Pilot On-Site (Half Day)",
+      "4K 60fps Stabilized Cinematic Aerial Footage",
+      "15+ High-Res Edited Aerial Stills",
+      "60-Second Color-Graded Marketing Reel",
+    ],
   },
   {
+    id: "addon_architectural_cgi",
     name: "Architectural CGI",
-    price: "₹15,000–₹1,00,000",
     icon: ImageIcon,
     color: "#f59e0b",
-    details: null,
+    details: [
+      "Day, Dusk & Night Exterior Elevations",
+      "Hyper-Realistic Materials & Lighting",
+      "8K Resolution for Hoardings & Brochures",
+      "Full Source 3D Scene Files Included",
+    ],
   },
 ];
 const addOnPackages = [
@@ -310,10 +340,10 @@ const addOnPackages = [
     description:
       "Designed for businesses that want to appear in AI-powered search and recommendation systems.",
     includes: [
-      "SEO Optimization",
+      "Full SEO & Technical Optimization",
       "AEO (Answer Engine Optimization)",
       "GEO (Generative Engine Optimization)",
-      "AI-ready structured content",
+      "AI-ready structured content & schema",
       "Knowledge base creation",
       "AI citation optimization",
       "Reddit authority building",
@@ -755,7 +785,7 @@ export default function Pricing() {
                   duration: 0.5,
                   delay: 0.55 + i * 0.05,
                 }}
-                className="group relative rounded-2xl p-5 bg-[#2c1b12] border border-neutral-800/50 hover:border-neutral-700/60 transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-2xl p-5 bg-[#2c1b12] border border-neutral-800/50 hover:border-neutral-700/60 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between h-full"
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
@@ -769,33 +799,28 @@ export default function Pricing() {
                     style={{ color: service.color }}
                   />
                 </div>
-                <h4 className="text-[15px] font-semibold text-white mb-1.5 leading-snug">
+                <h4 className="text-[15px] font-semibold text-white mb-2 leading-snug">
                   {service.name}
                 </h4>
-                <p
-                  className="text-[13px] font-bold mb-3"
-                  style={{ color: service.color }}
-                >
-                  {service.price}
-                </p>
                 {service.details && (
-                  <ul className="space-y-1.5 mb-4">
+                  <ul className="space-y-2 mb-5">
                     {service.details.map((d, j) => (
                       <li
                         key={j}
-                        className="text-[12px] text-neutral-400 flex items-center gap-2"
+                        className="text-[12px] text-neutral-300 flex items-start gap-2 leading-relaxed"
                       >
                         <div
-                          className="w-1 h-1 rounded-full shrink-0"
+                          className="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5"
                           style={{ background: service.color }}
                         />
-                        {d}
+                        <span>{d}</span>
                       </li>
                     ))}
                   </ul>
                 )}
+                <div className="flex-1" />
                 <button
-                  onClick={() => handleOpenCheckout("growth", "addon_3d_showcase")}
+                  onClick={() => handleOpenCheckout("growth", service.id || "addon_3d_showcase")}
                   className="w-full mt-2 py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-[#F26522] hover:text-white border border-white/10 text-neutral-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>+ Add to Plan</span>
@@ -833,15 +858,9 @@ export default function Pricing() {
                     style={{ color: pkg.color }}
                   />
                 </div>
-                <h4 className="text-[17px] font-semibold text-white mb-1">
+                <h4 className="text-[17px] font-semibold text-white mb-3">
                   {pkg.name}
                 </h4>
-                <p
-                  className="text-[15px] font-bold mb-4"
-                  style={{ color: pkg.color }}
-                >
-                  {pkg.price}
-                </p>
                 {(pkg as typeof addOnPackages[2]).description && (
                   <p className="text-[12px] text-neutral-400 mb-4 leading-relaxed">
                     {(pkg as typeof addOnPackages[2]).description}
