@@ -25,6 +25,7 @@ import Navbar from "@/components/landing/Navbar";
 import VideoBentoGrid from "@/components/landing/VideoBentoGrid";
 import VirtualStagingShowcase from "@/components/landing/VirtualStagingShowcase";
 import VirtualStagingStudio from "@/components/landing/VirtualStagingStudio";
+import TargetAudience from "@/components/landing/TargetAudience";
 const budgetRanges = [
   { id: "any", label: "Any Budget" },
   { id: "under-30l", label: "Under ₹30L" },
@@ -424,6 +425,10 @@ export default function BuildersPage() {
 
         {/* ─── REAL AI VIDEO SHOWCASE (BENTO GRID) ─── */}
         <VideoBentoGrid />
+
+        {/* ─── TARGET AUDIENCE & ECOSYSTEM SHOWCASE ─── */}
+        <TargetAudience />
+
         {/* ─── ALL PROFESSIONALS GRID ─── */}
         <motion.section
           id="professionals"

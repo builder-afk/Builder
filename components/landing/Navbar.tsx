@@ -80,11 +80,10 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { label: "Professionals", href: "/" },
+    { label: "Home", href: "/" },
+    { label: "Builders & Pros", href: "/builders" },
+    { label: "Virtual Staging 3D", href: "/virtual-staging", badge: "3D" },
     { label: "Our Services", href: "/services" },
-    { label: "Testimonials", href: "/services#testimonials" },
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Pricing", href: "/services#pricing" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -121,17 +120,29 @@ export default function Navbar() {
 
         {/* CENTER - Floating Nav Pill (Desktop Only) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-[#faf5f0] border border-[#171717]/10 rounded-full items-center p-[5px] pointer-events-auto shadow-sm">
-          <nav className="flex items-center gap-6 px-6">
-            {navLinks.map(link => (
-              <Link 
-                key={link.label} 
-                href={link.href} 
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-[14px] text-[#171717] hover:text-[#936850] transition-colors duration-300 font-medium whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="flex items-center gap-5 px-5">
+            {navLinks.map(link => {
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return (
+                <Link 
+                  key={link.label} 
+                  href={link.href} 
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className={`text-[13.5px] transition-colors duration-300 font-medium whitespace-nowrap flex items-center gap-1.5 py-1 px-2 rounded-full ${
+                    isActive 
+                      ? "text-[#F26522] font-bold bg-[#F26522]/10" 
+                      : "text-[#171717] hover:text-[#936850]"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {link.badge && (
+                    <span className="px-1.5 py-0.2 rounded-full bg-[#F26522] text-white text-[9px] font-mono font-bold tracking-wider animate-pulse">
+                      {link.badge}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4 lg:gap-6 border-l border-[#171717]/10 pl-6 pr-1 py-1">
@@ -215,7 +226,7 @@ export default function Navbar() {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                className="text-[28px] leading-[32px] font-medium text-gray-900" 
+                className="text-[28px] leading-[32px] font-medium text-gray-900 flex items-center justify-between" 
                 onClick={(e) => {
                   if (link.href.startsWith(pathname + "#")) {
                     handleLinkClick(e, link.href);
@@ -224,7 +235,12 @@ export default function Navbar() {
                   }
                 }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.badge && (
+                  <span className="px-2 py-0.5 rounded-full bg-[#F26522] text-white text-xs font-mono font-bold">
+                    {link.badge}
+                  </span>
+                )}
               </Link>
             ))}
           </nav>

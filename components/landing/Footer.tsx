@@ -25,6 +25,13 @@ const footerLinks = {
     { label: "AI Architecture", href: "/architecture-builder" },
     { label: "3D Viewer Demo", href: "/viewer/demo" },
   ],
+  Ecosystem: [
+    { label: "Contractors & Builders", href: "/niche/contractors" },
+    { label: "Architects & Designers", href: "/niche/architects" },
+    { label: "Suppliers & Manufacturers", href: "/niche/suppliers" },
+    { label: "Owners & Developers", href: "/niche/owners" },
+    { label: "Finance & Insurance", href: "/niche/finance" },
+  ],
   Platform: [
     { label: "Find Professionals", href: "/#professionals" },
     { label: "Cost Estimator", href: "/#estimator" },
@@ -144,7 +151,7 @@ export default function Footer() {
 
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Footer Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-12 py-12 border-b border-gray-100">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-12 py-12 border-b border-gray-100">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 flex flex-col justify-between">
             <div>

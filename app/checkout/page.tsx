@@ -3,7 +3,6 @@
 import React, { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
 import PaymentGatewayModal from "@/components/checkout/PaymentGatewayModal";
 import {
   PLAN_TIERS,
@@ -161,8 +160,6 @@ function CheckoutContent() {
           </div>
         </div>
       </main>
-
-      <Footer />
 
       {/* Payment Gateway Modal */}
       <PaymentGatewayModal
